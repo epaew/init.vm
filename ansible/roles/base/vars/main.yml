@@ -1,0 +1,13 @@
+dirs:
+  dotfiles:
+    src: /Vagrant/dotfiles
+    dest: "{{ global.dirs.dotfiles }}"
+  autojump: "{{ global.dirs.home }}/autojump"
+apt:
+  packages:
+    - build-essential
+    - git
+    - make
+    - rake
+    - tig
+    - wget

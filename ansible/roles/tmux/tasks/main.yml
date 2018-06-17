@@ -4,3 +4,20 @@
     name:
       - tmux
     state: latest
+- name: mkdir ~/.tmux/plugins
+  file:
+    path: "{{ dirs.tpm_sub }}"
+    state: directory
+- name: git clone tpm
+  git:
+    repo: https://github.com/tmux-plugins/tpm.git
+    dest: "{{ dirs.tpm }}"
+    depth: 1
+- name: create symlink of tmux.conf
+  file:
+    src: "{{ dirs.config.src }}"
+    dest: "{{ dirs.config.dest }}"
+    state: link
+# TODO: it's not working.
+#- name: install tmux plugins
+#  shell: "tmux new-session && {{ home_dir }}/.tmux/plugins/tpm/bindings/install_plugins"

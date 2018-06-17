@@ -1,4 +1,4 @@
-- name: apt update
+- name: apt update/upgrade
   become: yes
   apt:
     update_cache: yes
@@ -6,11 +6,19 @@
 - name: apt install common packages
   become: yes
   apt:
-    name:
-      - git
-      - tig
+    name: "{{ apt.packages }}"
     state: latest
-- name: apt autoremove
-  become: yes
-  apt:
-    autoremove: yes
+- name: create symlink of dotfiles dir
+  file:
+    src: "{{ dirs.dotfiles.src }}"
+    dest: "{{ dirs.dotfiles.dest }}"
+    state: link
+- name: git clone autojump
+  git:
+    repo: https://github.com/joelthelion/autojump.git
+    dest: "{{ dirs.autojump }}"
+    depth: 1
+- name: install autojump
+  command: ./install.py
+  args:
+    chdir: "{{ dirs.autojump }}"

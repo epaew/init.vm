@@ -1,0 +1,4 @@
+global:
+  dirs:
+    home: /home/vagrant
+    dotfiles: /home/vagrant/dotfiles

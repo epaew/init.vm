@@ -1,13 +1,32 @@
 - name: apt install neovim
   become: yes
   apt:
-    name:
-      - neovim
-      #- pyenv
+    name: "{{ apt.packages }}"
     state: latest
 - name: pip3 install neovim
   pip:
-    name: neovim
-    # how to install?
+    name:
+      - neovim
     executable: pip3
     extra_args: --user
+- name: mkdir ~/.cache/dein/repos/github.com/Shougo
+  file:
+    path: "{{ dirs.dein_sub }}"
+    state: directory
+- name: git clone dein
+  git:
+    repo: https://github.com/Shougo/dein.vim.git
+    dest: "{{ dirs.dein }}"
+    depth: 1
+- name: mkdir ~/.config
+  file:
+    path: "{{ dirs.config.dest_sub }}"
+    state: directory
+- name: create symlink of nvim configs
+  file:
+    src: "{{ dirs.config.src }}"
+    dest: "{{ dirs.config.dest }}"
+    state: link
+# TODO: it's not working.
+#- name: install nvim plugins
+#  command: 'nvim +"call dein#install()" +qall'

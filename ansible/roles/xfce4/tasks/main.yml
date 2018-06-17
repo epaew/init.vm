@@ -1,0 +1,16 @@
+- name: apt install xfce4
+  become: yes
+  apt:
+    name:
+      - conky
+      - dselect
+      - exo-utils
+      - fcitx-mozc
+      - light-locker
+      - lightdm
+      - xubuntu-desktop
+    state: latest
+- name: apt autoremove
+  become: yes
+  apt:
+    autoremove: yes

@@ -1,0 +1,6 @@
+
+dirs:
+  zsh_completions: "{{ global.dirs.home }}/.zsh-completions"
+  config:
+    src: "{{ global.dirs.dotfiles }}/.zshenv"
+    dest: "{{ global.dirs.home }}/.zshenv"

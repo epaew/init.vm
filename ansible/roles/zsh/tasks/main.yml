@@ -4,3 +4,13 @@
     name:
     - zsh
     state: latest
+- name: create symlink of zshenv
+  file:
+    src: "{{ dirs.config.src }}"
+    dest: "{{ dirs.config.dest }}"
+    state: link
+- name: git clone zsh-completions
+  git:
+    repo: https://github.com/zsh-users/zsh-completions.git
+    dest: "{{ dirs.zsh_completions }}"
+    depth: 1

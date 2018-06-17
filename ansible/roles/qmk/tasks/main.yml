@@ -5,7 +5,6 @@
       - avr-libc
       - binutils-avr
       - binutils-arm-none-eabi
-      - build-essential
       - dfu-programmer
       - dfu-util
       - gcc
@@ -13,6 +12,5 @@
       - gcc-avr
       - libnewlib-arm-none-eabi
       - unzip
-      - wget
       - zip
     state: latest

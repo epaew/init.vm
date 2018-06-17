@@ -1,0 +1,6 @@
+dirs:
+  tpm_sub: "{{ global.dirs.home }}/.tmux/plugins"
+  tpm: "{{ global.dirs.home }}/.tmux/plugins/tpm"
+  config:
+    src: "{{ global.dirs.dotfiles }}/.tmux.conf"
+    dest: "{{ global.dirs.home }}/.tmux.conf"
