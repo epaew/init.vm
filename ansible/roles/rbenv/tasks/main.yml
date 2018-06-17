@@ -1,0 +1,6 @@
+- name: apt install rbenv
+  become: yes
+  apt:
+    name:
+      - rbenv
+    state: latest

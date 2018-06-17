@@ -1,0 +1,9 @@
+---
+- hosts: all
+  roles:
+  - base
+  #- neovim
+  - qmk
+  - rbenv
+  - tmux
+  - zsh

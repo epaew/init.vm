@@ -1,0 +1,6 @@
+- name: apt install zsh
+  become: yes
+  apt:
+    name:
+    - zsh
+    state: latest

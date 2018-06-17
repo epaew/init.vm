@@ -1,0 +1,13 @@
+- name: apt install neovim
+  become: yes
+  apt:
+    name:
+      - neovim
+      #- pyenv
+    state: latest
+- name: pip3 install neovim
+  pip:
+    name: neovim
+    # how to install?
+    executable: pip3
+    extra_args: --user

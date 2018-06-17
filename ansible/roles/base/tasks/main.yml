@@ -1,0 +1,16 @@
+- name: apt update
+  become: yes
+  apt:
+    update_cache: yes
+    upgrade: safe
+- name: apt install common packages
+  become: yes
+  apt:
+    name:
+      - git
+      - tig
+    state: latest
+- name: apt autoremove
+  become: yes
+  apt:
+    autoremove: yes
