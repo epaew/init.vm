@@ -20,4 +20,6 @@
     state: link
 # TODO: it's not working.
 #- name: install tmux plugins
-#  shell: "tmux new-session && {{ home_dir }}/.tmux/plugins/tpm/bindings/install_plugins"
+#  shell: "TMUX_PLUGIN_MANAGER_PATH={{ dirs.tpm_sub }} /bin/bash {{ dirs.tpm }}/scripts/install_plugins.sh"
+#  args:
+#    executable: /usr/bin/tmux
