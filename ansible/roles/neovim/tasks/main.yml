@@ -27,6 +27,5 @@
     src: "{{ dirs.config.src }}"
     dest: "{{ dirs.config.dest }}"
     state: link
-# TODO: it's not working.
-#- name: install nvim plugins
-#  command: 'nvim +"call dein#install()" +qall'
+- name: install nvim plugins
+  shell: nvim -c ":silent! call dein#install() | :q"

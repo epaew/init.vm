@@ -5,7 +5,7 @@ apt:
     - python3-pip
 dirs:
   dein_sub: "{{ global.dirs.home }}/.cache/dein/repos/github.com/Shougo"
-  dein: "{{ global.dirs.home }}/.cache/dein/repos/github.com/Shougo/dein"
+  dein: "{{ global.dirs.home }}/.cache/dein/repos/github.com/Shougo/dein.vim"
   # known bug:  it causes recursive loop error
   #dein: "{{ dirs.dein_sub }}/dein"
   config:
