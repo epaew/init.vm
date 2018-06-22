@@ -1,6 +1,34 @@
-- name: apt install rbenv
+- name: apt install ruby-build dependencies
   become: yes
   apt:
     name:
-      - rbenv
+      - libreadline-dev
+      - libssl-dev
+      - zlib1g-dev
     state: latest
+- name: git clone rbenv
+  git:
+    repo: https://github.com/rbenv/rbenv.git
+    dest: "{{ dirs.rbenv }}"
+    depth: 1
+- name: compile rbenv
+  shell: src/configure && make -C src
+  args:
+    chdir: "{{ dirs.rbenv }}"
+- name: mkdir ~/.rbenv/plugins
+  file:
+    path: "{{ dirs.ruby_build.parent }}"
+    state: directory
+- name: git clone ruby-build
+  git:
+    repo: https://github.com/rbenv/ruby-build.git
+    dest: "{{ dirs.ruby_build.target }}"
+    depth: 1
+- name: rbenv install ruby and some gems
+  shell: |
+    eval "$(rbenv init -)"
+    rbenv install {{ ruby_version }}
+    rbenv global {{ ruby_version }}
+    gem install bundler pry
+  args:
+    create: "{{ dirs.rbenv }}/versions/{{ ruby_version }}"

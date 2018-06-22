@@ -1,0 +1,6 @@
+dirs:
+  rbenv: "{{ global.dirs.home }}/.rbenv"
+  ruby_build:
+    parent: "{{ global.dirs.home }}/.rbenv/plugins"
+    target: "{{ global.dirs.home }}/.rbenv/plugins/ruby-build"
+ruby_version: 2.5.1
