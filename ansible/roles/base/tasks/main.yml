@@ -11,8 +11,15 @@
 - name: create symlink of dotfiles dir
   file:
     src: "{{ dirs.dotfiles.src }}"
-    dest: "{{ dirs.dotfiles.dest }}"
+    dest: "{{ global.dirs.dotfiles }}"
     state: link
+- name: create symlink of each dotfiles
+  file:
+    src: "{{ global.dirs.dotfiles }}/{{ item }}"
+    dest: "{{ global.dirs.home }}/{{ item }}"
+    state: link
+  with_items:
+    - "{{ dotfiles }}"
 - name: git clone autojump
   git:
     repo: https://github.com/joelthelion/autojump.git

@@ -7,6 +7,11 @@
       - libssl-dev
       - zlib1g-dev
     state: latest
+- name: create symlink of .pryrc
+  file:
+    src: "{{ global.dirs.dotfiles }}/.pryrc"
+    dest: "{{ global.dirs.home }}/.pryrc"
+    state: link
 - name: git clone rbenv
   git:
     repo: https://github.com/rbenv/rbenv.git

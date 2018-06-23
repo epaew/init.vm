@@ -10,4 +10,6 @@ dirs:
   autojump: "{{ global.dirs.home }}/autojump"
   dotfiles:
     src: /Vagrant/dotfiles
-    dest: "{{ global.dirs.dotfiles }}"
+dotfiles:
+  - .gitconfig
+  - .tigrc
