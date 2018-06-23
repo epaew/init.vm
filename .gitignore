@@ -23,3 +23,4 @@ $RECYCLE.BIN/
 #############
 
 .vagrant
+ansible/playbook.retry
