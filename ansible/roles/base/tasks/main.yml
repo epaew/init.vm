@@ -22,12 +22,3 @@
   shell: ./install.py
   args:
     chdir: "{{ dirs.autojump }}"
-- name: generate ssh key pair
-  shell: |
-    ssh-keygen -q -t ed25519 -N "" -C "vagrant@${HOST}" -f ~/.ssh/id_ed25519
-    curl --user "epaew" -H "Accept: application/vnd.github.v3+json" \
-      -X POST -d "{\"title\":\"$(uname -nr)\", \"key\":\"$(cat ~/.ssh/id_ed25519.pub)\"}" \
-      https://api.github.com/user/keys
-  args:
-    creates: ~/.ssh/id_ed25519
-    stdin: "{{ secrets.github }}"

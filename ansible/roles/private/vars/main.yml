@@ -1,3 +1,17 @@
+apt:
+  packages:
+    - avr-libc
+    - binutils-avr
+    - binutils-arm-none-eabi
+    - dfu-programmer
+    - dfu-util
+    - gcc
+    - gcc-arm-none-eabi
+    - gcc-avr
+    - git
+    - libnewlib-arm-none-eabi
+    - unzip
+    - zip
 dirs:
   known_hosts: "{{ global.dirs.home }}/.ssh/known_hosts"
   workspace: "{{ global.dirs.home }}/workspace"
@@ -13,3 +27,12 @@ repos:
   - url:  "git@{{ domains.github }}:epaew/wav2flac4itunes.git"
     dest: "{{ dirs.workspace }}/wav2flac4itunes"
     depth: 0 # unlimited
+
+secrets:
+  github: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          37326137333739306361663362353231653032643932343835643362306330643538343637353432
+          6265633039336530326264383031326137623733353865620a643764393932383534303863636538
+          62353765353132383564666432343530666232356661353864666437333439356566343939353964
+          3934393966313730390a353837356339343939373663363563326138636437373336346239306636
+          6665
