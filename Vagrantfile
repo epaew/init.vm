@@ -31,6 +31,19 @@ Vagrant.configure("2") do |config|
 
     vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
     vb.customize ['modifyvm', :id, '--vram', '12']
+
+    # for write QMK firmware
+    vb.customize ['modifyvm', :id, '--usb', 'on']
+    vb.customize ['usbfilter', 'add', '0',
+                  '--target', :id,
+                  '--name', 'Arduino LLC Arduino Micro [0100]',
+                  '--vendorid', '0x2341',
+                  '--productid', '0x8037']
+    vb.customize ['usbfilter', 'add', '1',
+                  '--target', :id,
+                  '--name', 'Arduino LLC Arduino Micro [0001]',
+                  '--vendorid', '0x2341',
+                  '--productid', '0x0037']
   end
 
   # Enable provisioning with a shell script. Additional provisioners such as
