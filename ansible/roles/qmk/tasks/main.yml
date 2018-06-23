@@ -10,7 +10,12 @@
       - gcc
       - gcc-arm-none-eabi
       - gcc-avr
+      - git
       - libnewlib-arm-none-eabi
       - unzip
       - zip
     state: latest
+- name: mkdir workspace
+  file:
+    path: "{{ global.dirs.home }}/workspace"
+    state: directory

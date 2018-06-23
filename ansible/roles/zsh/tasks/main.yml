@@ -2,7 +2,8 @@
   become: yes
   apt:
     name:
-    - zsh
+      - git
+      - zsh
     state: latest
 - name: create symlink of zshenv
   file:

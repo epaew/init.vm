@@ -1,4 +1,13 @@
-- name: apt install xfce4
+- name: apt install xubuntu-desktop
+  become: yes
+  apt:
+    name:
+      - xubuntu-desktop
+      - xserver-xorg-input-all
+    state: latest
+    install_recommends: yes
+    update_cache: yes
+- name: apt install GUI utilities
   become: yes
   apt:
     name:
@@ -7,9 +16,11 @@
       - exo-utils
       - fcitx-mozc
       - light-locker
-      - lightdm
-      - xubuntu-desktop
+      - xfce4-screenshooter
+      - xfce4-taskmanager
+      - xfce4-terminal
     state: latest
+    update_cache: yes
 - name: apt autoremove
   become: yes
   apt:

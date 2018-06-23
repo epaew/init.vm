@@ -2,6 +2,7 @@
   become: yes
   apt:
     name:
+      - git
       - libreadline-dev
       - libssl-dev
       - zlib1g-dev
@@ -26,9 +27,10 @@
     depth: 1
 - name: rbenv install ruby and some gems
   shell: |
+    PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
     rbenv install {{ ruby_version }}
     rbenv global {{ ruby_version }}
     gem install bundler pry
   args:
-    create: "{{ dirs.rbenv }}/versions/{{ ruby_version }}"
+    creates: "{{ dirs.rbenv }}/versions/{{ ruby_version }}"

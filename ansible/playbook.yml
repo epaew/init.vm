@@ -2,10 +2,9 @@
 - hosts: all
   roles:
   - base
-  - neovim
-  - qmk
+  - zsh
   - rbenv
   - tmux
-  # TODO: something wrong.
-  #- xfce4
-  - zsh
+  - neovim
+  - qmk
+  # - xfce4
