@@ -18,8 +18,7 @@
     src: "{{ global.dirs.dotfiles }}/{{ item }}"
     dest: "{{ global.dirs.home }}/{{ item }}"
     state: link
-  with_items:
-    - "{{ dotfiles }}"
+  with_items: "{{ dotfiles }}"
 - name: git clone autojump
   git:
     repo: https://github.com/joelthelion/autojump.git

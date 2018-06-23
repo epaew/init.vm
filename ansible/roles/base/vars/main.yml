@@ -6,6 +6,9 @@ apt:
     - rake
     - tig
     - wget
+    - xsel
+    - xserver-xorg
+    - xubuntu-desktop
 dirs:
   autojump: "{{ global.dirs.home }}/autojump"
   dotfiles:

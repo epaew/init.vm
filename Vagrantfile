@@ -28,6 +28,9 @@ Vagrant.configure("2") do |config|
     vb.gui = false
     vb.cpus = ENV['VAGRANT_CPUS'] || 1
     vb.memory = ENV['VAGRANT_MEM'] || 1024
+
+    vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
+    vb.customize ['modifyvm', :id, '--vram', '12']
   end
 
   # Enable provisioning with a shell script. Additional provisioners such as
