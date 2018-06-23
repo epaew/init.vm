@@ -1,0 +1,15 @@
+dirs:
+  known_hosts: "{{ global.dirs.home }}/.ssh/known_hosts"
+  workspace: "{{ global.dirs.home }}/workspace"
+domains:
+  github: github.com
+repos:
+  - url:  "git@{{ domains.github }}:epaew/qmk_firmware.git"
+    dest: "{{ dirs.workspace }}/qmk_firmware"
+    depth: 10
+  - url:  "git@{{ domains.github }}:epaew/tmux-erb-parser.git"
+    dest: "{{ dirs.workspace }}/tmux-erb-parser"
+    depth: 0 # unlimited
+  - url:  "git@{{ domains.github }}:epaew/wav2flac4itunes.git"
+    dest: "{{ dirs.workspace }}/wav2flac4itunes"
+    depth: 0 # unlimited

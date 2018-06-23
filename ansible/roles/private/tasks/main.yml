@@ -1,0 +1,18 @@
+- name: mkdir ~/workspace
+  file:
+    path: "{{ dirs.workspace }}"
+    state: directory
+- name: ensure github.com is a known host
+  known_hosts:
+    name: "{{ item }}"
+    key: "{{ lookup('pipe', 'ssh-keyscan -H ' + item) }}"
+    hash_host: yes
+  with_items:
+    - "{{ domains.values() }}"
+- name: git checkouts
+  git:
+    repo: "{{ item.url }}"
+    dest: "{{ item.dest }}"
+    depth: "{{ item.depth }}"
+  with_items:
+    - "{{ repos }}"
