@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder ".", "/Vagrant"
+  config.vm.synced_folder ".", "/Vagrant", mount_options: ["dmode=775,fmode=664"]
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -37,6 +37,7 @@ Vagrant.configure("2") do |config|
     ansible.install_mode = :pip
     ansible.playbook = "ansible/playbook.yml"
     ansible.provisioning_path = "/Vagrant"
+    ansible.vault_password_file = "/Vagrant/.vault_pass"
     ansible.verbose = true
   end
 end

@@ -1,8 +1,3 @@
-dirs:
-  dotfiles:
-    src: /Vagrant/dotfiles
-    dest: "{{ global.dirs.dotfiles }}"
-  autojump: "{{ global.dirs.home }}/autojump"
 apt:
   packages:
     - build-essential
@@ -11,3 +6,16 @@ apt:
     - rake
     - tig
     - wget
+dirs:
+  dotfiles:
+    src: /Vagrant/dotfiles
+    dest: "{{ global.dirs.dotfiles }}"
+  autojump: "{{ global.dirs.home }}/autojump"
+secrets:
+  github: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          37326137333739306361663362353231653032643932343835643362306330643538343637353432
+          6265633039336530326264383031326137623733353865620a643764393932383534303863636538
+          62353765353132383564666432343530666232356661353864666437333439356566343939353964
+          3934393966313730390a353837356339343939373663363563326138636437373336346239306636
+          6665
