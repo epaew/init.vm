@@ -1,0 +1,6 @@
+apt:
+  packages: []
+repos: []
+  #- url:  "git@{{ global.domains.github }}:epaew/[rails-repo].git"
+  #  dest: "{{ global.dirs.workspace }}/[rails-repo]"
+  #  depth: 0 # unlimited

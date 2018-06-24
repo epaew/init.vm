@@ -1,0 +1,3 @@
+apt:
+  packages:
+    - postgresql-10

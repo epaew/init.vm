@@ -12,15 +12,13 @@ apt:
     - libnewlib-arm-none-eabi
     - unzip
     - zip
-dirs:
-  workspace: "{{ global.dirs.home }}/workspace"
 repos:
   - url:  "git@{{ global.domains.github }}:epaew/qmk_firmware.git"
-    dest: "{{ dirs.workspace }}/qmk_firmware"
+    dest: "{{ global.dirs.workspace }}/qmk_firmware"
     depth: 10
   - url:  "git@{{ global.domains.github }}:epaew/tmux-erb-parser.git"
-    dest: "{{ dirs.workspace }}/tmux-erb-parser"
+    dest: "{{ global.dirs.workspace }}/tmux-erb-parser"
     depth: 0 # unlimited
   - url:  "git@{{ global.domains.github }}:epaew/wav2flac4itunes.git"
-    dest: "{{ dirs.workspace }}/wav2flac4itunes"
+    dest: "{{ global.dirs.workspace }}/wav2flac4itunes"
     depth: 0 # unlimited

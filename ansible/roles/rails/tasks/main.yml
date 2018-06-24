@@ -1,4 +1,4 @@
-- name: apt install qmk required packages
+- name: apt install rails required packages
   become: yes
   apt:
     name: "{{ apt.packages }}"

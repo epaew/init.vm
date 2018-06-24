@@ -2,5 +2,6 @@ global:
   dirs:
     home: /home/vagrant
     dotfiles: /home/vagrant/dotfiles
+    workspace: /home/vagrant/workspace
   domains:
     github: github.com
