@@ -1,27 +1,30 @@
+- name: apt install xserver-xorg
+  become: yes
+  apt:
+    name:
+    - xserver-xorg
+    state: latest
+    update_cache: yes
 - name: apt install xubuntu-desktop
   become: yes
   apt:
     name:
-      - xubuntu-desktop
-      - xserver-xorg-input-all
+    - xubuntu-desktop
     state: latest
-    install_recommends: yes
     update_cache: yes
-- name: apt install GUI utilities
+- name: apt install extra GUI utilities
   become: yes
   apt:
-    name:
-      - conky
-      - dselect
-      - exo-utils
-      - fcitx-mozc
-      - light-locker
-      - xfce4-screenshooter
-      - xfce4-taskmanager
-      - xfce4-terminal
+    name: "{{ apt.packages }}"
     state: latest
     update_cache: yes
 - name: apt autoremove
   become: yes
   apt:
     autoremove: yes
+- name: create symlink of each dotfiles
+  file:
+    src: "{{ global.dirs.dotfiles }}/{{ item }}"
+    dest: "{{ global.dirs.home }}/{{ item }}"
+    state: link
+  with_items: "{{ dotfiles }}"

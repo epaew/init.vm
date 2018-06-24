@@ -1,0 +1,11 @@
+apt:
+  packages:
+    - conky
+    - dselect
+    - exo-utils
+    - fcitx-mozc
+    - light-locker
+    - wireshark
+    - xsel
+dotfiles:
+  - .conkyrc
