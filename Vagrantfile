@@ -25,16 +25,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # for write QMK firmware
     dev.vm.provider "virtualbox" do |vb|
       vb.customize ['modifyvm', :id, '--usb', 'on']
-      vb.customize ['usbfilter', 'add', '0',
-                    '--target', :id,
-                    '--name', 'Arduino LLC Arduino Micro [0100]',
-                    '--vendorid', '0x2341',
-                    '--productid', '0x8037']
-      vb.customize ['usbfilter', 'add', '1',
-                    '--target', :id,
-                    '--name', 'Arduino LLC Arduino Micro [0001]',
-                    '--vendorid', '0x2341',
-                    '--productid', '0x0037']
+      unless vm_exists?(:develop)
+        vb.customize ['usbfilter', 'add', '0',
+                      '--target', :id,
+                      '--name', 'Arduino LLC Arduino Micro [0100]',
+                      '--vendorid', '0x2341',
+                      '--productid', '0x8037']
+        vb.customize ['usbfilter', 'add', '1',
+                      '--target', :id,
+                      '--name', 'Arduino LLC Arduino Micro [0001]',
+                      '--vendorid', '0x2341',
+                      '--productid', '0x0037']
+      end
     end
 
     dev.vm.provision "ansible_local" do |ansible|
@@ -50,4 +52,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     rails.vm.hostname = "rails.epaew"
     #rails.vm.synced_folder ".", "/Vagrant"
   end
+end
+
+def vm_exists?(vm_name)
+  Dir.exists?(".vagrant/machines/#{vm_name}")
 end
