@@ -4,6 +4,8 @@ apt:
     - dselect
     - exo-utils
     - fcitx-mozc
+    - fonts-noto-cjk-extra
+    - language-pack-gnome-ja
     - light-locker
     - wireshark
     - xsel

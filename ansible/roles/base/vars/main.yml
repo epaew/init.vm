@@ -2,6 +2,8 @@ apt:
   packages:
     - build-essential
     - git
+    - language-pack-ja
+    - linux-headers-generic
     - make
     - rake
     - tig
