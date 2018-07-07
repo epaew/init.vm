@@ -1,5 +1,6 @@
 apt:
   packages:
+    - avrdude
     - avr-libc
     - binutils-avr
     - binutils-arm-none-eabi
@@ -11,11 +12,12 @@ apt:
     - git
     - libnewlib-arm-none-eabi
     - unzip
+    - wget
     - zip
 repos:
   - url:  "git@{{ global.domains.github }}:epaew/qmk_firmware.git"
     dest: "{{ global.dirs.workspace }}/qmk_firmware"
-    depth: 10
+    depth: 0
   - url:  "git@{{ global.domains.github }}:epaew/tmux-erb-parser.git"
     dest: "{{ global.dirs.workspace }}/tmux-erb-parser"
     depth: 0 # unlimited
