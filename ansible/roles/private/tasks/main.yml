@@ -8,6 +8,11 @@
   file:
     path: "{{ global.dirs.workspace }}"
     state: directory
+- name: add vboxsf group to vagrant user
+  user:
+    name: vagrant
+    groups: vboxsf
+    append: yes
 - name: git checkouts
   git:
     repo: "{{ item.url }}"

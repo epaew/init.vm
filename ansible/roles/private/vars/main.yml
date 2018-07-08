@@ -1,5 +1,6 @@
 apt:
   packages:
+    # for qmk-firmware
     - avrdude
     - avr-libc
     - binutils-avr
@@ -14,6 +15,9 @@ apt:
     - unzip
     - wget
     - zip
+    # for wav2flac4itunes
+    - libtag1-dev
+    - flac
 repos:
   - url:  "git@{{ global.domains.github }}:epaew/qmk_firmware.git"
     dest: "{{ global.dirs.workspace }}/qmk_firmware"
