@@ -1,0 +1,16 @@
+- name: apt install packages
+  become: yes
+  apt:
+    name: "{{ apt.packages }}"
+    state: latest
+
+- name: mkdir ~/containers
+  file:
+    path: "{{ dirs.containers }}"
+    state: directory
+- name: generate rails containers
+  become: yes
+  shell: |
+    debootstrap --arch=amd64 --include=vim bionic {{ dirs.rails }} http://ubuntutym.u-toyama.ac.jp/ubuntu/
+  args:
+    creates: "{{ dirs.rails }}"

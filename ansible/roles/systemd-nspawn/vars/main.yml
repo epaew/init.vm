@@ -1,0 +1,7 @@
+apt:
+  packages:
+    - debootstrap
+    - systemd-container
+dirs:
+  containers: "{{ global.dirs.home }}/containers"
+  rails: "{{ global.dirs.home }}/containers/rails"
