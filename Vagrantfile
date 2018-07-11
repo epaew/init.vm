@@ -48,10 +48,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
   end
 
-  config.vm.define :rails, autostart: false do |rails|
-    rails.vm.hostname = "rails.epaew"
-    #rails.vm.synced_folder ".", "/Vagrant"
-  end
+  #config.vm.define :rails, autostart: false do |rails|
+  #  rails.vm.hostname = "rails.epaew"
+  #  #rails.vm.synced_folder ".", "/Vagrant"
+  #end
 end
 
 def vm_exists?(vm_name)
