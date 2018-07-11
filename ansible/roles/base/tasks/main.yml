@@ -19,13 +19,13 @@
     src: "{{ global.dirs.dotfiles }}/{{ item }}"
     dest: "{{ global.dirs.home }}/{{ item }}"
     state: link
-  with_items: "{{ dotfiles.link }}"
+  with_items: "{{ dotfiles.links }}"
 - name: create copy of each dotfiles
   copy:
     src: "{{ global.dirs.dotfiles }}/{{ item }}"
     dest: "{{ global.dirs.home }}/{{ item }}"
     remote_src: yes
-  with_items: "{{ dotfiles.copy }}"
+  with_items: "{{ dotfiles.copies }}"
 
 - name: generate ssh key pair
   shell: |

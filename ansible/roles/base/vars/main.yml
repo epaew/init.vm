@@ -13,11 +13,10 @@ dirs:
   dotfiles:
     src: /Vagrant/dotfiles
 dotfiles:
-  link:
+  links:
     - .tigrc
-  copy:
+  copies:
     - .gitconfig
-
 secrets:
   github: !vault |
           $ANSIBLE_VAULT;1.1;AES256
