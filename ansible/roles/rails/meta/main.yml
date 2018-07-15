@@ -1,4 +1,4 @@
 dependencies:
   - role: base
   - role: rbenv
-  - role: postgre
+  # - role: postgre

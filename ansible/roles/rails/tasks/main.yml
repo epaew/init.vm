@@ -15,3 +15,10 @@
     depth: "{{ item.depth }}"
   with_items:
     - "{{ repos }}"
+- name: bundle install
+  shell: |
+    bundle install --path vendor/bundle
+  args:
+    chdir: "{{ item.dest }}"
+  with_items:
+    - "{{ repos }}"

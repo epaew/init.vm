@@ -1,6 +1,9 @@
 apt:
-  packages: []
-repos: []
-  #- url:  "git@{{ global.domains.github }}:epaew/[rails-repo].git"
-  #  dest: "{{ global.dirs.workspace }}/[rails-repo]"
-  #  depth: 0 # unlimited
+  packages:
+    - libpq-dev
+    - postgresql
+    - redis
+repos:
+  - url:  "git@{{ global.domains.github }}:epaew/fanz-index.git"
+    dest: "{{ global.dirs.workspace }}/fanz-index"
+    depth: 0 # unlimited
