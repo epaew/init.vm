@@ -36,6 +36,6 @@
     eval "$(rbenv init -)"
     rbenv install {{ ruby_version }}
     rbenv global {{ ruby_version }}
-    gem install bundler pry
+    gem install bundler dotenv pry
   args:
     creates: "{{ dirs.rbenv }}/versions/{{ ruby_version }}"
