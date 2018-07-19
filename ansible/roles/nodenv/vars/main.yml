@@ -1,0 +1,6 @@
+dirs:
+  nodenv: "{{ global.dirs.home }}/.nodenv"
+  node_build:
+    parent: "{{ global.dirs.home }}/.nodenv/plugins"
+    target: "{{ global.dirs.home }}/.nodenv/plugins/node-build"
+node_version: 10.6.0

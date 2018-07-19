@@ -3,6 +3,7 @@
   roles:
   - base
   - zsh
+  - nodenv
   - rbenv
   - tmux
   - neovim

@@ -1,0 +1,27 @@
+- name: git clone nodenv
+  git:
+    repo: https://github.com/nodenv/nodenv.git
+    dest: "{{ dirs.nodenv }}"
+    depth: 1
+- name: compile nodenv
+  shell: src/configure && make -C src
+  args:
+    chdir: "{{ dirs.nodenv }}"
+- name: mkdir ~/.nodenv/plugins
+  file:
+    path: "{{ dirs.node_build.parent }}"
+    state: directory
+- name: git clone node-build
+  git:
+    repo: https://github.com/nodenv/node-build.git
+    dest: "{{ dirs.node_build.target }}"
+    depth: 1
+- name: nodenv install nodejs
+  shell: |
+    PATH="$HOME/.nodenv/bin:$PATH"
+    eval "$(nodenv init -)"
+    nodenv install {{ node_version }}
+    nodenv global {{ node_version }}
+    npm install -g yarn
+  args:
+    creates: "{{ dirs.nodenv }}/versions/{{ node_version }}"
