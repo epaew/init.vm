@@ -22,3 +22,9 @@
     chdir: "{{ item.dest }}"
   with_items:
     - "{{ repos }}"
+- name: install heroku cli via snap
+  become: yes
+  shell: |
+    snap install heroku --classic
+    rehash
+    heroku plugins:install heroku-redis
