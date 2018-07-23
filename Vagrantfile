@@ -20,6 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define :develop do |dev|
     dev.vm.hostname = "develop.epaew"
+    dev.vm.network :forwarded_port, guest: 3030, host: 3030, id: :https
     dev.vm.synced_folder ".", "/Vagrant", mount_options: ["dmode=775,fmode=664"]
 
     # for write QMK firmware
