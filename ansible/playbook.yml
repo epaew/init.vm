@@ -2,12 +2,12 @@
 - hosts: all
   roles:
   - base
-  - zsh
-  - nodenv
-  - rbenv
-  - tmux
   - neovim
-  - xfce4
+  - nodenv
+  - postgres
   - private
   - rails
-  # - systemd-nspawn
+  - rbenv
+  - tmux
+  - xfce4
+  - zsh

@@ -3,7 +3,7 @@
 
 VAGRANTFILE_API_VERSION = '2'.freeze
 VAGRANT_DEFAULT_PROVIDER = 'virtualbox'.freeze
-VAGRANT_MOUNT_PATH = '/Vagrant'.freeze
+VAGRANT_MOUNT_PATH = '/vagrant'.freeze
 
 configure_ansible = proc do |ansible|
   ansible.install_mode = :pip
@@ -42,7 +42,7 @@ configure_develop = proc do |dev|
 end
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = 'bento/ubuntu-18.04'
+  config.vm.box = 'ubuntu/bionic64'
   config.vm.box_check_update = true
 
   # common

@@ -1,0 +1,22 @@
+- name: install postgresql
+  become: yes
+  apt:
+    name: "{{ apt.packages }}"
+    state: latest
+- name: create database
+  become: yes
+  become_user: postgres
+  postgresql_db:
+    name: "{{ item }}"
+    encoding: UTF-8
+  with_items: "{{ postgres.dbnames }}"
+- name: create postgres user
+  become: yes
+  become_user: postgres
+  postgresql_user:
+    db: "{{ item }}"
+    name: "{{ postgres.user.name }}"
+    password: "{{ postgres.user.password }}"
+    role_attr_flags: LOGIN,CREATEDB,NOSUPERUSER
+    priv: ALL
+  with_items: "{{ postgres.dbnames }}"

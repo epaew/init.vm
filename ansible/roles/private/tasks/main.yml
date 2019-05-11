@@ -9,6 +9,7 @@
     path: "{{ global.dirs.workspace }}"
     state: directory
 - name: add vboxsf group to vagrant user
+  become: yes
   user:
     name: vagrant
     groups: vboxsf

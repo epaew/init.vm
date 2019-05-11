@@ -11,7 +11,7 @@ apt:
 dirs:
   autojump: "{{ global.dirs.home }}/autojump"
   dotfiles:
-    src: /Vagrant/dotfiles
+    src: /vagrant/dotfiles
 dotfiles:
   links:
     - .tigrc

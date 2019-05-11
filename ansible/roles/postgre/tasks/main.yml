@@ -1,5 +1,0 @@
-- name: install postgresql
-  become: yes
-  apt:
-    name: "{{ apt.packages }}"
-    state: latest

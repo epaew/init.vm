@@ -22,6 +22,7 @@ $RECYCLE.BIN/
 ## Others
 #############
 
+*.log
 *.swp
 .vagrant
 .vault_pass
